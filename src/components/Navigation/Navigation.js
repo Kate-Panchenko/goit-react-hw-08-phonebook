@@ -1,8 +1,12 @@
+import { useAuth } from 'hooks/useAuth';
+
 export const Navigation = () => {
+  const { isLoggedIn } = useAuth();
+
   return (
     <nav>
       <div>Home</div>
-      <div>Contacts</div>
+      {isLoggedIn && <div>Contacts</div>}
     </nav>
   );
 };

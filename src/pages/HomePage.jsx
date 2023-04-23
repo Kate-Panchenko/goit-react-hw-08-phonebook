@@ -1,7 +1,8 @@
+import { Title } from "components/ContactForm/ContactForm.styled";
 const HomePage = () => {
     return (
         <div>
-            <h1>HomePage</h1>
+            <Title>Welcome to the HomePage</Title>
         </div>
     )
 };

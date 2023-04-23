@@ -1,16 +1,11 @@
-import { ThemeProvider } from "styled-components";
-import { GlobalStyle } from "./GlobalStyle";
-import { Layout } from "./Layout";
-import { theme } from "./Layout";
-import { Title } from "./ContactForm/ContactForm.styled";
-import ContactForm from "./ContactForm/ContactForm";
-import ContactList from "./ContactList/ContactList";
-import Filter from "./Filter/Filter";
 import { lazy, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useAuth } from "hooks/useAuth";
 import { refreshUser } from "redux/auth/operations";
 import { Route, Routes } from "react-router-dom";
+import { SharedLayout } from "./SharedLayout/SharedLayout";
+import { RestrictedRoute } from "./Routes/RestrictedRoute";
+import { PrivateRoute } from "./Routes/PrivateRoute";
 
 const Home = lazy(() => import("pages/HomePage"));
 const Login = lazy(() => import("pages/LoginPage"));
@@ -27,20 +22,12 @@ export const App = () => {
 
   return isRefreshing ? (<div>Refreshing user...</div>) : (
     <Routes>
-      <Route path="/" >
-
+      <Route path="/" element={<SharedLayout/>}>
+        <Route index element={<Home />} />
+        <Route path="/register" element={<RestrictedRoute redirectTo="/contacts" component={<Register/>} />}/>
+        <Route path="/login" element={<RestrictedRoute redirectTo="/contacts" component={<Login/>} />}/>
+        <Route path="/contacts" element={<PrivateRoute redirectTo="/login" component={<Contacts/>} />}/>
       </Route>
     </Routes>
   )
 };
-
-<ThemeProvider theme={theme}>
-      <Layout>
-        <GlobalStyle />
-        <Title>Phonebook</Title>
-        <ContactForm />
-        <Title>Contacts</Title>
-        <Filter/>
-        <ContactList/>
-      </Layout>
-    </ThemeProvider>

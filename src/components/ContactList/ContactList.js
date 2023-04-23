@@ -26,10 +26,10 @@ function ContactList() {
       {error && <Message>There are no contacts. Please, try again.</Message>}
       <List>
         {filteredContacts &&
-          filteredContacts.map(({ name, phone, id }) => {
+          filteredContacts.map(({ name, number, id }) => {
             return (
               <Contact key={id}>
-                <ContactItem name={name} number={phone} id={id} />
+                <ContactItem name={name} number={number} id={id} />
               </Contact>
             );
           })}

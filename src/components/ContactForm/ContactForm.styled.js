@@ -7,7 +7,10 @@ export const Title = styled.h2`
   line-height: 1.22;
   color: ${props => props.theme.black};
   margin-bottom: 36px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 `;
 
 export const Form = styled(FormikForm)`
@@ -47,6 +50,11 @@ export const Button = styled.button`
   font-weight: 600;
   font-size: 24px;
   line-height: 1.21;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {

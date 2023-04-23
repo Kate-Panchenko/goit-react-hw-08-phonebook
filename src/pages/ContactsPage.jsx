@@ -3,12 +3,14 @@ import { Title } from "components/ContactForm/ContactForm.styled";
 import ContactList from "components/ContactList/ContactList";
 import Filter from "components/Filter/Filter";
 
+import {HiPencilSquare, HiIdentification} from 'react-icons/hi2';
+
 const Contacts = () => {
     return (
         <div>
-            <Title>Contacts</Title>
+            <Title>Phonebook <HiPencilSquare/> </Title>
             <ContactForm />
-            <Title>Contacts</Title>
+            <Title>Contacts <HiIdentification/> </Title>
             <Filter />
             <ContactList/>
         </div>

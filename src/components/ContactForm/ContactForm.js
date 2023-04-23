@@ -6,6 +6,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts } from 'redux/selectors';
 import { addContact } from 'redux/operations';
 
+import { HiUserPlus } from 'react-icons/hi2';
+
 const initialValues = {
   name: '',
   number: '',
@@ -61,7 +63,9 @@ function ContactForm() {
           <Field type="tel" name="number" id={nanoid()} />
           <ErrorMessage name="number" render={msg => <div>{msg}</div>} />
         </Label>
-        <Button type="submit">Add contact</Button>
+        <Button type="submit">
+          Add contact <HiUserPlus />{' '}
+        </Button>
       </Form>
     </Formik>
   );

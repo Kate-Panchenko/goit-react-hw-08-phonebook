@@ -1,8 +1,9 @@
 import { useAuth } from 'hooks/useAuth';
 import { useDispatch } from 'react-redux';
 import { logout } from 'redux/auth/operations';
+import { HiArrowRightOnRectangle, HiOutlineFaceSmile } from 'react-icons/hi2';
 
-import { Menu, Button, UserName } from './UserMenu.styled';
+import { Menu, Button, UserName, ButtonSpan, Name } from './UserMenu.styled';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -13,9 +14,16 @@ export const UserMenu = () => {
 
   return (
     <Menu>
-      <UserName>Welcome, {user.name}</UserName>
+      <UserName>
+        Welcome,{' '}
+        <Name>
+          {user.name} <HiOutlineFaceSmile />
+        </Name>
+      </UserName>
       <Button type="button" onClick={handleLogout}>
-        Logout
+        <ButtonSpan>
+          Logout <HiArrowRightOnRectangle />
+        </ButtonSpan>
       </Button>
     </Menu>
   );

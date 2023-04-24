@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { Field as FormikField, Form as FormikForm } from 'formik';
 
-export const Form = styled.form`
+export const Form = styled(FormikForm)`
   border: 1px solid ${props => props.theme.border};
   border-radius: 10px;
   display: flex;
@@ -14,6 +15,7 @@ export const Form = styled.form`
 export const Label = styled.label`
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   gap: 18px;
   font-weight: 600;
   font-size: 24px;
@@ -21,7 +23,7 @@ export const Label = styled.label`
   color: ${props => props.theme.black};
 `;
 
-export const Input = styled.input`
+export const Field = styled(FormikField)`
   height: 40px;
   border: 1px solid ${props => props.theme.border};
   border-radius: 10px;

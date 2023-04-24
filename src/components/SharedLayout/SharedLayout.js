@@ -5,6 +5,7 @@ import { Layout, theme } from 'components/Layout';
 import { GlobalStyle } from 'components/GlobalStyle';
 import { AppBar } from 'components/AppBar/AppBar';
 import { Loader } from 'components/Loader/Loader';
+// import { ToastContainer } from 'react-toastify';
 
 export const SharedLayout = () => {
   return (
@@ -20,4 +21,4 @@ export const SharedLayout = () => {
   );
 };
 
-// <ToastContainer autoClose={1500} hideProgressBar={true} />;
+// <ToastContainer autoClose={2000} hideProgressBar={false} />;
